@@ -6,7 +6,7 @@ import {
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import CardView from 'react-native-cardview';
 import Loading from 'react-native-whc-loading'
-// import { RNCamera } from 'react-native-camera';
+import { RNCamera } from 'react-native-camera';
 import { ScrollView } from 'react-native-gesture-handler';
 // import { NavigationEvents } from 'react-navigation'
 import AsyncStorage from '@react-native-community/async-storage';
@@ -783,13 +783,7 @@ export default class AddItem extends Component {
           cornerRadius={3}
           style={{ margin: 10 }}>
 
-          {/* <RNCamera
-            barCodeTypes={[RNCamera.Constants.BarCodeType]}
-            onBarCodeRead={() => alert("barcode read")}
-            ref={ref => {
-              this.camera = ref;
-            }} */}
-          <RNCamera
+            <RNCamera
             ref={ref => {
               this.camera = ref;
             }}

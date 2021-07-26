@@ -15,7 +15,7 @@ import {
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import CardView from "react-native-cardview";
 // import Camera from "react-native-camera";
-// import { RNCamera } from "react-native-camera";
+import { RNCamera } from "react-native-camera";
 // import { NavigationEvents } from 'react-navigation'
 import SearchableDropdown from 'react-native-searchable-dropdown';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -80,18 +80,18 @@ export default class UploadPic extends Component {
 
 
     creen = () => {
-        //this.camera.stopCapture();
+        this.camera.stopCapture();
         const { barcode } = this.state;
         if (barcode == "") {
 
         } else {
             this.Nextscreen()
 
-            //this.barcode.clear()
+            this.barcode.clear()
         }
     };
     screen = () => {
-        //this.camera.stopCapture();
+        this.camera.stopCapture();
         const { barcode } = this.state;
         if (barcode == "") {
             Alert.alert(
@@ -105,7 +105,7 @@ export default class UploadPic extends Component {
         } else {
             this.Nextscreen()
 
-            //this.barcode.clear()
+            this.barcode.clear()
         }
     };
     Nextscreen = () => {
@@ -116,18 +116,18 @@ export default class UploadPic extends Component {
 
                 if (data) {
 
-                    //this.refs.loading.show();
+                    this.refs.loading.show();
                     fetch(API_BASE_URL + `admin/checkPriceBySKU_new?sku=${this.state.barcode}&token=${encodeURIComponent(data)}&sid=${SID}`, {
                         method: 'GET',
-                        // headers: {
-                        //   Accept: 'application/json',
-                        //   'Content-Type': 'application/json',
-                        // },
+                        headers: {
+                          Accept: 'application/json',
+                          'Content-Type': 'application/json',
+                        },
                     }).then((response) => response.json())
                         .then((responseJson) => {
-                            //this.refs.loading.show(false);
+                            this.refs.loading.show(false);
 
-                            // this.barcode.clear()
+                            this.barcode.clear()
 
 
                             if (responseJson.status) {
@@ -172,7 +172,7 @@ export default class UploadPic extends Component {
     constructor(props) {
         super(props);
         let { width } = Dimensions.get('window');
-        // this.maskLength = (width * 85) / 100;
+        this.maskLength = (width * 85) / 100;
         this.camera = null;
         this.barcodeCodes = [];
 
@@ -209,7 +209,7 @@ export default class UploadPic extends Component {
                 UEUA => {
                     if (UEUA == "1") {
 
-                        // this.refs.loading.show(); 
+                        this.refs.loading.show(); 
 
                         fetch(API_BASE_URL + `convertupce2upca?upc=${encodeURIComponent(scanResult.data)}`, {
 
@@ -218,7 +218,7 @@ export default class UploadPic extends Component {
                         }).then((response) => response.json())
                             .then((responseJson) => {
 
-                                // this.refs.loading.show(false);
+                                this.refs.loading.show(false);
                                 if (responseJson.status == "success") {
 
                                     AsyncStorage.getItem('UPCAL').then(
@@ -229,10 +229,10 @@ export default class UploadPic extends Component {
                                                     UPCAR => {
                                                         if (UPCAR == "1") {
                                                             this.setState({ "barcode": responseJson.data.substring(1, responseJson.data.length - 1) })
-                                                            //if (this.state.barcode != '') this.Nextscreen();
+                                                            if (this.state.barcode != '') this.Nextscreen();
                                                         } else {
                                                             this.setState({ "barcode": responseJson.data.substring(1) })
-                                                            //if (this.state.barcode != '') this.Nextscreen();
+                                                            if (this.state.barcode != '') this.Nextscreen();
                                                         }
                                                     }
                                                 )
@@ -243,10 +243,10 @@ export default class UploadPic extends Component {
                                                     UPCAR => {
                                                         if (UPCAR == "1") {
                                                             this.setState({ "barcode": responseJson.data.substring(0, responseJson.data.length - 1) })
-                                                            //if (this.state.barcode != '') this.Nextscreen();
+                                                            if (this.state.barcode != '') this.Nextscreen();
                                                         } else {
                                                             this.setState({ 'barcode': responseJson.data })
-                                                            //if (this.state.barcode != '') this.Nextscreen();
+                                                            if (this.state.barcode != '') this.Nextscreen();
                                                         }
                                                     }
                                                 )
@@ -257,7 +257,7 @@ export default class UploadPic extends Component {
 
 
                                 } else if (responseJson.status == "error") {
-                                    //this.setState({'barcode' : responseJson.data})
+                                    this.setState({'barcode' : responseJson.data})
                                     Alert.alert(
 
                                         '',
@@ -281,10 +281,10 @@ export default class UploadPic extends Component {
                                         UPCER => {
                                             if (UPCER == "1") {
                                                 this.setState({ "barcode": scanResult.data.substring(1, scanResult.data.length - 1) })
-                                                //if (this.state.barcode != '') this.Nextscreen();
+                                                if (this.state.barcode != '') this.Nextscreen();
                                             } else {
                                                 this.setState({ "barcode": scanResult.data.substring(1) })
-                                                //if (this.state.barcode != '') this.Nextscreen();
+                                                if (this.state.barcode != '') this.Nextscreen();
                                             }
                                         }
                                     )
@@ -295,10 +295,10 @@ export default class UploadPic extends Component {
                                         UPCER => {
                                             if (UPCER == "1") {
                                                 this.setState({ "barcode": scanResult.data.substring(0, scanResult.data.length - 1) })
-                                                //if (this.state.barcode != '') this.Nextscreen();
+                                                if (this.state.barcode != '') this.Nextscreen();
                                             } else {
                                                 this.setState({ 'barcode': scanResult.data })
-                                                //if (this.state.barcode != '') this.Nextscreen();
+                                                if (this.state.barcode != '') this.Nextscreen();
                                             }
                                         }
                                     )
@@ -321,7 +321,7 @@ export default class UploadPic extends Component {
             AsyncStorage.getItem('UAUE').then(
                 UAUE => {
                     if (UAUE == "1") {
-                        //this.refs.loading.show(); 
+                        this.refs.loading.show(); 
 
                         fetch(API_BASE_URL + `convertupca2upce?upc=${encodeURIComponent(ScannedBarcodeResult)}`, {
 
@@ -329,7 +329,7 @@ export default class UploadPic extends Component {
 
                         }).then((response) => response.json())
                             .then((responseJson) => {
-                                // this.refs.loading.show(false);
+                                this.refs.loading.show(false);
                                 if (responseJson.status == "success") {
 
 
@@ -367,7 +367,7 @@ export default class UploadPic extends Component {
                                         }
                                     )
                                 } else if (responseJson.status == "error") {
-                                    //this.setState({'barcode' : responseJson.data})
+                                    this.setState({'barcode' : responseJson.data})
                                     Alert.alert(
                                         '',
                                         responseJson.message,

@@ -1,9 +1,0 @@
-com/albertaadmin_v2/MainApplication.java
- com.albertaadmin_v2.MainApplication
- com.albertaadmin_v2.MainApplication$1
-com/albertaadmin_v2/MainActivity.java
- com.albertaadmin_v2.MainActivity
-com/albertaadmin_v2/BuildConfig.java
- com.albertaadmin_v2.BuildConfig
-com/facebook/react/PackageList.java
- com.facebook.react.PackageList

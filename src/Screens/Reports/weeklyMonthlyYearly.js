@@ -111,17 +111,20 @@ export default class ReportsView extends Component {
         <View style={{width: '100%'}}>
           <ImageBackground
             source={require('../../assets/images/header.jpeg')}
-            style={{position: 'relative', height: 160, paddingTop: 20}}>
+            style={{position: 'relative', height: 200, paddingTop: 20}}>
+            {/* <FontAwesome style={{marginTop:0}} name="caret-left" color={'#fff'} size={26} onPress={()=>this.props.navigation.navigate('Dashboard')} />
             <Text
               style={{color: '#fff', paddingHorizontal: 40}}
               onPress={() => this.props.navigation.navigate('Dashboard')}>
               Weekly/Monthly/Yearly Reports
-            </Text>
+            </Text> */}
+            <FontAwesome style={{marginBottom:-27,marginLeft:10}} name="caret-left" color={'#fff'} size={26} onPress={()=>this.props.navigation.navigate('Reports')} />
+                  <Text style={{color: 'white',fontSize:15,paddingHorizontal:8,paddingVertical:3,marginLeft:15}} onPress={()=>this.props.navigation.navigate('Reports')}> Weekly/Monthly/Yearly Reports</Text>
             <View
               style={{
                 flexDirection: 'row',
                 justifyContent: 'center',
-                marginTop: 10,
+                marginTop: 30,
                 alignContent:'center',
                 marginLeft:30
               }}>
@@ -252,6 +255,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 10,
+    margin:10,
     // marginLeft: 12,
     //padding: 5,
   },

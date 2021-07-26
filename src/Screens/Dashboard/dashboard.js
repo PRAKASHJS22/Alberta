@@ -15,6 +15,7 @@ import moment from 'moment-timezone';
 import LinearGradient from 'react-native-linear-gradient';
 import axios from 'axios';
 import AsyncStorage from "@react-native-community/async-storage";
+import { FlatList } from 'react-native';
 
 class Dashboard extends React.Component {
   state = {
@@ -269,14 +270,14 @@ class Dashboard extends React.Component {
 
  
 
-  handleCancel = () => {
+  handleCancel = ({item}) => {
     AsyncStorage.removeItem('savedPassword');
     AsyncStorage.removeItem('token');
     // AsyncStorage.removeItem('AuthPassword')
     this.props.navigation.navigate('login');
   };
 
-  handleClick = (item) =>{
+  handleClick = ({item}) =>{
     // alert("hello");
     // console.log(item);
     let data=JSON.stringify(item);
@@ -324,6 +325,51 @@ class Dashboard extends React.Component {
       this.props.navigation.navigate("Dashboard")
     }
   }
+
+
+
+  // renderItem = ({item})=> (
+
+  //  <>
+  //     <TouchableOpacity  onPress={()=>this.handleClick({item})}/>
+  //        <FontAwesome name="circle" color={'#3386D6'} size={32} />
+           
+  //          <Text
+  //              style={{
+  //                fontSize: 16,
+  //                paddingVertical: 5,
+  //                paddingHorizontal: 16,
+  //                borderWidth:1,
+  //                marginTop:2,
+  //                marginBottom:2,
+  //                // borderWidth:2,
+                 
+  //              }}>
+  //                {item.vpermissionname}</Text>
+  //       {/* <View style={{flexDirection: 'row'}}>
+  //         <TouchableOpacity onPress={()=>this.handleClick({item})}>
+  //          <FontAwesome name="circle" color={'#3386D6'} size={32} />
+           
+  //             <Text
+  //                 style={{
+  //                   fontSize: 16,
+  //                   paddingVertical: 5,
+  //                   paddingHorizontal: 16,
+  //                   borderWidth:1,
+  //                   marginTop:2,
+  //                   marginBottom:2,
+  //                   // borderWidth:2,
+                    
+  //                 }}>
+  //                   {item.vpermissionname}
+        
+  //             </Text>
+  //             </TouchableOpacity> 
+  //       </View> */}
+      
+  //   </>
+  // )
+  // }
 
   render() {
   
@@ -421,11 +467,12 @@ class Dashboard extends React.Component {
               </View>
             </View> 
            
-           <ScrollView>
-             {
+ 
+             {/* {
              this.state.dataSource.map((val,index)=>{
                 return(
                   <View >
+                  
                   <TouchableOpacity onPress={()=>this.handleClick(val)}>
                   <ListItem
                     keyExtractor={(item, index) => index.toString()}
@@ -456,18 +503,55 @@ class Dashboard extends React.Component {
           //  <Text>No data Found</Text>
           // null
            
-             }
-             
-      
-           </ScrollView>
+             } */}
+        
+              <FlatList
+                  data={this.state.dataSource}
+                  ListFooterComponent={<View style={{margin:390}}/>}
+                  keyExtractor={(item,index) => index}
+                  horizontal={false}
+                  renderItem={({item})=>  
+                   (
+                      <TouchableOpacity onPress={()=>this.handleClick({item})} >
+                        <View style={{
+                          flexDirection: "row",
+                          backgroundColor: "white",
+                          borderRadius: 35,
+                          marginHorizontal: 10,
+                          marginVertical: 5,
+                          paddingVertical: 14,
+                          }}>
+                          
+                         <FontAwesome name="circle" color={'#3386D6'} size={30} />
+
+                           <Text
+                            style={{
+                              flex: 1,
+                              fontSize: 16,
+                              paddingVertical: 5,
+                              paddingHorizontal: 15,
+                              
+                            }}
+                            >
+                            {item.vpermissionname}
+                          </Text>
+                        </View>
+                      </TouchableOpacity>
+              
+                    )
+                  }
+              />
+    
+              </View>
            {/* </ScrollView> */}
           </View>
           </View>
        
-      </View>
+
       // </View>
     );
   }
 }
 
 export default Dashboard;
+

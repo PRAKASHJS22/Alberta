@@ -1,4 +1,5 @@
 import React,{Component  } from "react";
+import { ScrollView } from "react-native";
 import { View,Text,SafeAreaView , ImageBackground,} from "react-native";
 import {ListItem} from 'react-native-elements';
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -53,6 +54,7 @@ export default class Reports extends Component{
     render(){
         return(
            <SafeAreaView>
+      
                <View style={{width: '100%'}}>
               <ImageBackground
                 source={require('../assets/images/header.jpeg')}
@@ -75,6 +77,7 @@ export default class Reports extends Component{
                       {
                           this.state.data.map((val,index)=>{
                               return(
+                
                                 <TouchableOpacity onPress={()=>this.handleClick(val)}>
                                 <ListItem
                                 // key = {index}
@@ -106,6 +109,7 @@ export default class Reports extends Component{
 
 
             </View>
+            
            </SafeAreaView>
         )
     }

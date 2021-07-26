@@ -6,7 +6,7 @@ import {
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import CardView from 'react-native-cardview';
 import Loading from 'react-native-whc-loading'
-// import { RNCamera } from 'react-native-camera';
+import { RNCamera } from 'react-native-camera';
 import { ScrollView } from 'react-native-gesture-handler';
 // import { NavigationEvents } from 'react-navigation'
 import SearchableDropdown from 'react-native-searchable-dropdown';
@@ -17,7 +17,7 @@ export default class ItemMov extends Component {
   constructor(props) {
     super(props);
     let { width } = Dimensions.get('window');
-    // this.maskLength = (width * 85) / 100;
+    this.maskLength = (width * 85) / 100;
     this.camera = null;
     this.barcodeCodes = [];
 
@@ -113,40 +113,34 @@ export default class ItemMov extends Component {
             cornerRadius={3}
             style={{ margin: 10 }}>
 
-            {/* <RNCamera
-            barCodeTypes={[RNCamera.Constants.BarCodeType]}
-            onBarCodeRead={() => alert("barcode read")}
+            <RNCamera
             ref={ref => {
               this.camera = ref;
-            }} */}
-            <RNCamera
-              ref={ref => {
-                this.camera = ref;
-              }}
-              barcodeFinderVisible={this.state.camera.barcodeFinderVisible}
-              barcodeFinderWidth={280}
-              barcodeFinderHeight={220}
-              barcodeFinderBorderColor="green"
-              barcodeFinderBorderWidth={2}
-              defaultTouchToFocus
-              flashMode={this.state.camera.flashMode}
-              mirrorImage={false}
-              // onBarCodeRead={this.onBarCodeRead.bind(this)}
-              onFocusChanged={() => { }}
-              onZoomChanged={() => { }}
-              permissionDialogTitle={'Permission to use camera'}
-              permissionDialogMessage={'We need your permission to use your camera phone'}
-              style={styles.preview}
-              type={this.state.camera.type}>
+            }}
+            barcodeFinderVisible={this.state.camera.barcodeFinderVisible}
+            barcodeFinderWidth={280}
+            barcodeFinderHeight={220}
+            barcodeFinderBorderColor="green"
+            barcodeFinderBorderWidth={5}
+            defaultTouchToFocus
+            flashMode={this.state.camera.flashMode}
+            mirrorImage={false}
+            // onBarCodeRead={this.onBarCodeRead.bind(this)}
+            onFocusChanged={() => { }}
+            onZoomChanged={() => { }}
+            permissionDialogTitle={'Permission to use camera'}
+            permissionDialogMessage={'We need your permission to use your camera phone'}
+            style={styles.preview}
+            type={this.state.camera.type}>
+            <View style={styles.overlay} />
+            <View style={[styles.contentRow, { height: 190 }]}>
               <View style={styles.overlay} />
-              <View style={[styles.contentRow, { height: 190 }]}>
-                <View style={styles.overlay} />
-                <View style={[styles.content, { width: 300, height: 190 }]} />
-                <View style={styles.overlay} />
-              </View>
+              <View style={[styles.content, { width: 300, height: 190 }]} />
               <View style={styles.overlay} />
+            </View>
+            <View style={styles.overlay} />
 
-            </RNCamera>
+          </RNCamera>
 
 
           </CardView>

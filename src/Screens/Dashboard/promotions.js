@@ -428,6 +428,7 @@ export default class Promotions extends Component {
                     {
               this.state.dataSource.map((val,idx)=>{
                   return(
+                      
                     <TouchableOpacity onPress={() => this.timebtnClicked()}>
                     <ListItem
                     // key = {index}

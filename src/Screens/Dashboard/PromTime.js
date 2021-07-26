@@ -952,7 +952,7 @@ export default class PromTime extends React.Component {
                             }}
                         >
                             <TextInput
-                                // style={styles.input}
+                                style={styles.input}
                                 returnKeyType="next"
                                 keyboardType="default"
                                 autoCapitalize="none"
@@ -991,6 +991,7 @@ export default class PromTime extends React.Component {
                                     >
 
                                         <TextInput
+                                        
                                             editable={false}
                                             style={styles.inputCode}
                                             returnKeyType="next"
@@ -1134,7 +1135,7 @@ export default class PromTime extends React.Component {
                         >
 
                             <DatePicker
-                                style={{ width: "90%", paddingTop: 0 }}
+                                style={{ width: "90%", paddingTop: 0,}}
                                 date={this.state.fromDate}
                                 minDate={new Date}
                                 showIcon={false}
@@ -1322,6 +1323,7 @@ export default class PromTime extends React.Component {
                             <TextInput
                                 // style={styles.input}
                                 //   returnKeyType="next"
+                                style={{backgroundColor:"white"}}
                                 keyboardType='number-pad'
                                 underlineColorAndroid="transparent"
                                 returnKeyType="done"
@@ -1518,6 +1520,7 @@ export default class PromTime extends React.Component {
                                         <TextInput
                                             // style={styles.input}
                                             //  returnKeyType="next"
+                                            // style={{backgroundColor:"white"}}
                                             keyboardType="default"
                                             autoCapitalize="none"
                                             autoCorrect={false}
@@ -1556,6 +1559,7 @@ export default class PromTime extends React.Component {
                             <TextInput
                                 // style={styles.input}
                                 // returnKeyType="next"
+                    
                                 keyboardType="default"
                                 autoCapitalize="none"
                                 autoCorrect={false}
@@ -1928,11 +1932,12 @@ const styles = StyleSheet.create({
         borderTopColor: "#636466",
         borderBottomWidth: 1,
         borderBottomColor: "#636466",
-
+     
         marginBottom: 10,
         color: "#000",
         fontSize: 15,
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+        backgroundColor:"white",
     },
     inputCode: {
         //width: 250,
@@ -1951,9 +1956,11 @@ const styles = StyleSheet.create({
         borderBottomColor: "#636466",
 
         marginBottom: 10,
-        color: "#000",
-        fontSize: 15,
-        paddingHorizontal: 20
+        color: "white",
+        fontSize: 36,
+        paddingHorizontal: 20,
+        backgroundColor:"white"
+
     },
 
     inputt: {
@@ -1975,7 +1982,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         color: "#000",
         fontSize: 15,
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
     },
     setDepartmentTextSize: {
         fontSize: 18,

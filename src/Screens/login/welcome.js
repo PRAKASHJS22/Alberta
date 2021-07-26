@@ -69,6 +69,7 @@ export default class welcome extends Component {
   render() {
     return (
       <SafeAreaView style={{backgroundColor: '#3386D6'}}>
+      
         <View style={{backgroundColor: '#3386D6'}}>
           <View style={styles.welcomeTextView}>
             <Text style={styles.welcomeText}>Welcome</Text>
@@ -188,7 +189,7 @@ export default class welcome extends Component {
 const styles = StyleSheet.create({
   welcomeTextView: {
     // backgroundColor:'red',
-    marginTop: 90,
+    marginTop: 80,
   },
 
   welcomeText: {
@@ -200,6 +201,7 @@ const styles = StyleSheet.create({
   },
   welcomeText1: {
     margin: 4,
+    bottom:10,
     color: '#fff',
     fontSize: 18,
     alignSelf: 'center',
@@ -207,11 +209,14 @@ const styles = StyleSheet.create({
   bottomView: {
     // flex: 1,
     flexDirection: 'row',
+    flexWrap:'wrap',
     alignContent: 'space-between',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop:10,
+    // marginTop:-10,
+    bottom:2,
     // marginLeft:50
+
   },
   iconBackground: {
     color: 'white',

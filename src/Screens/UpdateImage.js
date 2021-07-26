@@ -15,8 +15,8 @@ import {
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import CardView from 'react-native-cardview';
-// import Camera from 'react-native-camera';
-// import {RNCamera} from 'react-native-camera';
+import Camera from 'react-native-camera';
+import {RNCamera} from 'react-native-camera';
 import PhotoUpload from 'react-native-photo-upload';
 // import { NavigationEvents } from 'react-navigation'
 import SearchableDropdown from 'react-native-searchable-dropdown';
@@ -144,7 +144,7 @@ export default class UpadteImage extends React.Component {
     // alert('Under development')
     AsyncStorage.getItem('Sid').then(data => {
       if (data) {
-        // this.refs.loading.show();
+        this.refs.loading.show();
         STORE_ID = data;
         API_URL = API_BASE_URL + 'uploadbase64image/';
         fetch(API_URL, {

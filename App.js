@@ -72,7 +72,6 @@ import Storetableview from "./src/Screens/Storetableview";
 // import login from './src/Screens/Login/login';
 
 
-
 const Stack = createStackNavigator();
 
 function MyStack() {

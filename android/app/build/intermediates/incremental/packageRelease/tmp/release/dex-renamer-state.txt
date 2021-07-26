@@ -1,4 +1,0 @@
-#Tue Jul 13 19:57:17 IST 2021
-base.0=/Users/rameshjp/Alberta/Manasa-SourceCode/AlbertaAdmin/android/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex

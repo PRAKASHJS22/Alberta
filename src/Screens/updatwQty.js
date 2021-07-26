@@ -4,7 +4,7 @@ import {
   Alert, Image, Vibration, ScrollView
 } from 'react-native';
 import CardView from 'react-native-cardview';
-// import { RNCamera } from 'react-native-camera';
+import { RNCamera } from 'react-native-camera';
 import Loading from 'react-native-whc-loading'
 // import { NavigationEvents } from 'react-navigation'
 import AsyncStorage from '@react-native-community/async-storage';

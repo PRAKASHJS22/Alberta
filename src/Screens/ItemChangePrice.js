@@ -7,7 +7,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import CardView from 'react-native-cardview';
 // import Camera from 'react-native-camera';
 import Loading from 'react-native-whc-loading'
-// import { RNCamera } from 'react-native-camera';
+import { RNCamera } from 'react-native-camera';
 // import { NavigationEvents } from 'react-navigation'
 import AsyncStorage from '@react-native-community/async-storage';
 import SearchableDropdown from 'react-native-searchable-dropdown';

@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 // @react-native-community/masked-view
 import org.reactnative.maskedview.RNCMaskedViewPackage;
+// react-native-camera
+import org.reactnative.camera.RNCameraPackage;
 // react-native-cardview
 import com.kishanjvaghela.cardview.RNCardViewPackage;
 // react-native-exit-app
@@ -90,6 +92,7 @@ public class PackageList {
       new MainReactPackage(mConfig),
       new AsyncStoragePackage(),
       new RNCMaskedViewPackage(),
+      new RNCameraPackage(),
       new RNCardViewPackage(),
       new RNExitAppPackage(),
       new RNFSPackage(),

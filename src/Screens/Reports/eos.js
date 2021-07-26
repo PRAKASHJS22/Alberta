@@ -118,6 +118,7 @@ export default class Eos extends Component {
 
     this.setState({ visibleDetails: false })
 
+
   }
 
   getReportData = (batchID) => {
@@ -267,10 +268,9 @@ export default class Eos extends Component {
           .then(responseJson => {
             this.refs.loading.show(false);
             if (responseJson) {
-
-              this.setState(
+                console.log(responseJson)
+                this.setState(
                 {
-
                   isLoading: false,
                   batchData: responseJson
                 },
@@ -280,7 +280,6 @@ export default class Eos extends Component {
             else {
               alert("No Batches Available!")
             }
-
           })
           .catch(error => {
             console.error(error);
@@ -371,10 +370,8 @@ export default class Eos extends Component {
                     // backgroundColor: 'blue',
                     borderColor: '#bbb',
                     borderWidth: 1,}}
-                onChangeText={(value) => {
-
-                  this.getReportData(value)
-
+                    onChangeText={(value) => {
+                    this.getReportData(value)
                   //alert(value)
                 }}
 
@@ -431,7 +428,7 @@ export default class Eos extends Component {
                 data={this.state.batchData}
                 onChangeText={(value) => {
 
-                  this.getReportData(value)
+                this.getReportData(value)
 
                   //alert(value)
                 }}
